@@ -1,0 +1,54 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.8'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.lch'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = "10"
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//mybatis-plus
+	implementation group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.5.1'
+	//mybatis-plus 代码生成器
+	implementation group: 'com.baomidou', name: 'mybatis-plus-generator', version: '3.5.1'
+	// Velocity
+	implementation "org.apache.velocity:velocity:1.7"
+	//swagger
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	//hutool
+	implementation 'cn.hutool:hutool-all:5.8.12'
+	//org.apache.poi
+	implementation group: 'org.apache.poi', name: 'poi-scratchpad', version: '4.1.2';
+	implementation 'org.apache.poi:poi-ooxml:4.1.2'
+	//java-jwt
+	implementation 'com.auth0:java-jwt:4.3.0'
+	//redis
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis:2.7.8'
+
+
+
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+//targetCompatibility = JavaVersion.VERSION_10
